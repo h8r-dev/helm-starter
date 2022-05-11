@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "gin-sample.fullname" . }}
+  labels:
+    {{- include "gin-sample.labels" . | nindent 4 }}
+    {{ if .Values.service.labels}}
+    {{- toYaml .Values.service.labels | nindent 4 }}
+    {{- end }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "gin-sample.selectorLabels" . | nindent 4 }}
