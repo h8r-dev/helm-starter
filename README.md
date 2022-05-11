@@ -1,5 +1,5 @@
-# helm-starter-spring-boot
-An Spring Boot starter template for Helm
+# helm-starter
+An helm starter project.
 
 ## installation
 - Clone repo to $helm/starters
