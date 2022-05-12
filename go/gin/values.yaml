@@ -4,11 +4,9 @@
 
 nocalhost:
   enabled: false
-  gin:
-    dev:
-      gitUrl: ""
-    annotations: 
-      path: conf/nocalhost.yaml
+  gitUrl: ""
+  annotations: 
+    path: conf/nocalhost.yaml
 
 replicaCount: 1
 
