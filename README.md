@@ -14,5 +14,6 @@ git clone https://github.com/h8r-dev/helm-starter.git $HOME/.local/share/helm/st
 
 ## Usage
 ```shell
-helm create test-spring-boot -p helm-starter/java/spring-boot
+helm create test-<CHARTNAME> -p helm-starter/<StarterName>
+# helm create test-java -p helm-starter/java
 ```
