@@ -2,7 +2,7 @@ containers:
   - name: {{ .Chart.Name }}
     dev:
       gitUrl: {{ .Values.nocalhost.gitUrl }}
-      image: nocalhost-docker.pkg.coding.net/nocalhost/dev-images/golang:latest
+      image: ghcr.io/nocalhost/dev-container/golang:latest
       shell: bash
       workDir: /home/nocalhost-dev
       command:
