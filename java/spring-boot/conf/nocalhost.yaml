@@ -6,12 +6,11 @@ containers:
       shell: bash
       workDir: /home/nocalhost-dev
       command:
-        # TODO: Add command to run the app.
-        run: []
-        debug: []
+        run: [ "./mvnw", "spring-boot:run" ]
+        debug: [ "mvn", "spring-boot:run", '-Dspring-boot.run.jvmArguments="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005"' ]
       debug:
-        remoteDebugPort: 9009
-      hotReload: true
+        remoteDebugPort: 5005
+      hotReload: false
       sync:
         type: send
         filePattern:
