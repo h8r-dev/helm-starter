@@ -5,6 +5,7 @@
 nocalhost:
   enabled: false
   gitUrl: ""
+  ingressURLPrefix: "dev."
   annotations: 
     path: conf/nocalhost.yaml
 
