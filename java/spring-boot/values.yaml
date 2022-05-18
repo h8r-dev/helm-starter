@@ -2,6 +2,13 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
+nocalhost:
+  enabled: false
+  gitUrl: ""
+  ingressURLPrefix: "dev."
+  annotations: 
+    path: conf/nocalhost.yaml
+
 replicaCount: 1
 
 image:

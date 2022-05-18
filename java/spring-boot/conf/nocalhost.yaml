@@ -1,0 +1,29 @@
+containers:
+  - name: {{ .Chart.Name }}
+    dev:
+      gitUrl: {{ .Values.nocalhost.gitUrl }}
+      image: ghcr.io/nocalhost/dev-container/java:latest
+      shell: bash
+      workDir: /home/nocalhost-dev
+      command:
+        # TODO: Add command to run the app.
+        run: []
+        debug: []
+      debug:
+        remoteDebugPort: 9009
+      hotReload: true
+      sync:
+        type: send
+        filePattern:
+          - ./
+        ignoreFilePattern:
+          - ".git"
+          - ".idea"
+          - ".github"
+      resources:
+        limits:
+          cpu: "2"
+          memory: 2Gi
+        requests:
+          cpu: "0.2"
+          memory: 256Mi
