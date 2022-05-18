@@ -38,7 +38,7 @@ spec:
   {{- end }}
   rules:
     {{- range .Values.ingress.hosts }}
-    - host: "{{ if $.Values.nocalhost.enabled }}dev.{{ end }}{{ .host }}"
+    - host: "{{ if and $.Values.nocalhost.ingressURLPrefix $.Values.nocalhost.enabled }}{{ $.Values.nocalhost.ingressURLPrefix }}{{ end }}{{ .host }}"
       http:
         paths:
           {{- range .paths }}
