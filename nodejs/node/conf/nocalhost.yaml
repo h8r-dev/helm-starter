@@ -6,12 +6,12 @@ containers:
       shell: bash
       workDir: /home/nocalhost-dev
       command:
-        run: [ "npm", "run", "dev" ]
+        run: [ "npm install && npm run dev -- -p 80" ]
         # TODO: add remote debug command
         debug: []
       debug:
         remoteDebugPort: 9009
-      hotReload: true
+      hotReload: false
       sync:
         type: send
         filePattern:
