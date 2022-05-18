@@ -2,7 +2,7 @@
 {{- if .Values.ingress.enabled }}
 {{- range $host := .Values.ingress.hosts }}
   {{- range .paths }}
-  http{{ if $.Values.ingress.tls }}s{{ end }}://{{ if and $.Values.nocalhost.ingressURLPrefix $.Values.nocalhost.enabled }}{{ $.Values.nocalhost.ingressURLPrefix }}{{ end }}{{ $host.host }}{{ .path }}
+  http{{ if $.Values.ingress.tls }}s{{ end }}://{{ if and $.Values.nocalhost.ingressURLPrefix $.Values.nocalhost.enabled }}{{ $.Values.nocalhost.ingressURLPrefix }}{{ end }}{{ $host.host }}{{ .path | trimSuffix "(/|$)(.*)" }}
   {{- end }}
 {{- end }}
 {{- else if contains "NodePort" .Values.service.type }}
