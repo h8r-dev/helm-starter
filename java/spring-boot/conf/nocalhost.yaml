@@ -1,0 +1,28 @@
+containers:
+  - name: {{ .Chart.Name }}
+    dev:
+      gitUrl: {{ .Values.nocalhost.gitUrl }}
+      image: ghcr.io/nocalhost/dev-container/java:latest
+      shell: bash
+      workDir: /home/nocalhost-dev
+      command:
+        run: [ "./mvnw", "spring-boot:run" ]
+        debug: [ "mvn", "spring-boot:run", '-Dspring-boot.run.jvmArguments="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005"' ]
+      debug:
+        remoteDebugPort: 5005
+      hotReload: false
+      sync:
+        type: send
+        filePattern:
+          - ./
+        ignoreFilePattern:
+          - ".git"
+          - ".idea"
+          - ".github"
+      resources:
+        limits:
+          cpu: "2"
+          memory: 2Gi
+        requests:
+          cpu: "0.2"
+          memory: 256Mi

@@ -4,6 +4,11 @@ metadata:
   name: {{ include "spring-boot.fullname" . }}
   labels:
     {{- include "spring-boot.labels" . | nindent 4 }}
+  {{- if .Values.nocalhost.enabled }}
+  annotations:
+    dev.nocalhost: |-
+      {{ tpl (.Files.Get .Values.nocalhost.annotations.path) . | nindent 6 }}
+  {{- end }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
