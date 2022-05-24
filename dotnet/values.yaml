@@ -25,7 +25,6 @@ serviceAccount:
 
 podAnnotations:
   dapr.io/enabled: "true"
-  dapr.io/app-id: "react"
   dapr.io/app-port: "80"
 
 podSecurityContext: {}

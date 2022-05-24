@@ -17,6 +17,7 @@ spec:
       annotations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+        dapr.io/app-id: {{ include "dotnet.fullname" . }}
       labels:
         {{- include "dotnet.selectorLabels" . | nindent 8 }}
     spec:
