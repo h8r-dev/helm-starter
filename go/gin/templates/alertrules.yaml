@@ -1,0 +1,13 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  creationTimestamp: null
+  labels:
+    role: hln-rules
+  name: hln-gin-rules
+spec:
+  groups:
+  - name: h8r.io/rules
+    rules:
+    - alert: ginSerivceAlert
+      expr: "gin_request_error_count > 0"
