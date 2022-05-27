@@ -5,7 +5,9 @@
 nocalhost:
   enabled: false
   gitUrl: ""
-  ingressURLPrefix: "dev."
+  # default prefix is "{{ Release.Namespace }}."
+  # example:
+  # ingressURLPrefix: "dev."
   annotations: 
     path: conf/nocalhost.yaml
 

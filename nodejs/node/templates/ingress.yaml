@@ -38,7 +38,14 @@ spec:
   {{- end }}
   rules:
     {{- range .Values.ingress.hosts }}
-    - host: "{{ if $.Values.nocalhost.enabled }}dev.{{ end }}{{ .host }}"
+    - host: "{{- if $.Values.nocalhost.enabled -}}
+          {{- if $.Values.nocalhost.ingressURLPrefix -}}
+          {{ $.Values.nocalhost.ingressURLPrefix }}
+          {{- else -}}
+          {{ $.Release.Namespace }}.
+          {{- end -}}
+        {{- end }}
+      {{- .host }}"
       http:
         paths:
           {{- range .paths }}
