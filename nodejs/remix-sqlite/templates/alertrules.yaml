@@ -4,7 +4,8 @@ metadata:
   creationTimestamp: null
   labels:
     role: hln-rules
-  name: hln-remix-rules
+    {{- include "<CHARTNAME>.labels" . | nindent 4 }}
+  name: {{ include "<CHARTNAME>.fullname" . }}
 spec:
   groups:
   - name: h8r.io/rules
