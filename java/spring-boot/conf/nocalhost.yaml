@@ -9,6 +9,7 @@ containers:
         run: [ "./mvnw", "spring-boot:run" ]
         debug: [ "mvn", "spring-boot:run", '-Dspring-boot.run.jvmArguments="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005"' ]
       debug:
+        language: "java"
         remoteDebugPort: 5005
       hotReload: false
       sync:
