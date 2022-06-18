@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "spring-boot.fullname" . }}
+  name: {{ include "<CHARTNAME>.fullname" . }}
   labels:
-    {{- include "spring-boot.labels" . | nindent 4 }}
+    {{- include "<CHARTNAME>.labels" . | nindent 4 }}
   annotations:
     dev.nocalhost: |-
       {{ tpl (.Files.Get .Values.nocalhost.annotations.path) . | nindent 6 }}
@@ -13,7 +13,7 @@ spec:
   {{- end }}
   selector:
     matchLabels:
-      {{- include "spring-boot.selectorLabels" . | nindent 6 }}
+      {{- include "<CHARTNAME>.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -21,13 +21,13 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "spring-boot.selectorLabels" . | nindent 8 }}
+        {{- include "<CHARTNAME>.selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "spring-boot.serviceAccountName" . }}
+      serviceAccountName: {{ include "<CHARTNAME>.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
