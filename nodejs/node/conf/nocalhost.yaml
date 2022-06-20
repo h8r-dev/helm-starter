@@ -7,8 +7,7 @@ containers:
       workDir: /home/nocalhost-dev
       command:
         run: [ "npm install && npm run dev -- -p 80" ]
-        # TODO: add remote debug command
-        debug: []
+        debug: [ "npm install && npm run dev -- -p 80" ]
       debug:
         language: "node"
         remoteDebugPort: 9009
