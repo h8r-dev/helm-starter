@@ -42,7 +42,7 @@ spec:
           {{- if $.Values.nocalhost.ingressURLPrefix -}}
           {{ $.Values.nocalhost.ingressURLPrefix }}
           {{- else -}}
-          {{ $.Release.Namespace }}.
+          {{ $.Release.Namespace }}-
           {{- end -}}
         {{- end }}
       {{- .host }}"
