@@ -28,3 +28,6 @@ containers:
         requests:
           cpu: "0.2"
           memory: 256Mi
+      persistentVolumeDirs: 
+        - path: "/home/nocalhost-dev"
+          capacity: "10Gi"
