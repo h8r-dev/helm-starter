@@ -32,3 +32,6 @@ containers:
           capacity: "10Gi"
         - path: "/go"
           capacity: "10Gi"
+      env:
+        - name: "GOCACHE"
+          value: "/go/.cache"
