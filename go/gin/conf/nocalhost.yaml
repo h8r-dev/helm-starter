@@ -6,7 +6,7 @@ containers:
       shell: bash
       workDir: /home/nocalhost-dev
       command:
-        run: [ "go", "run", "main.go" ]
+        run: [ "air" ]
         debug: [ "dlv", "--headless", "--log", "--listen", ":9009", "--api-version", "2", "--accept-multiclient", "debug", "main.go" ]
       debug:
         language: "go"
