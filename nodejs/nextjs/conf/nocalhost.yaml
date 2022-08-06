@@ -30,4 +30,4 @@ containers:
           memory: 256Mi
       persistentVolumeDirs: 
         - path: "/home/nocalhost-dev"
-          capacity: "10Gi"
+          capacity: "20Gi"
