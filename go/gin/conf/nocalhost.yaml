@@ -29,9 +29,9 @@ containers:
           memory: 256Mi
       persistentVolumeDirs: 
         - path: "/home/nocalhost-dev"
-          capacity: "10Gi"
+          capacity: "20Gi"
         - path: "/go"
-          capacity: "10Gi"
+          capacity: "20Gi"
       env:
         - name: "GOCACHE"
           value: "/go/.cache"
